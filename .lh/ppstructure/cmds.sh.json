@@ -1,0 +1,38 @@
+{
+    "sourceFile": "ppstructure/cmds.sh",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1724316190415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724316204091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-curl -X POST -F \"file=@/path/to/your/image.jpg\" -o table_output.html http://localhost:8000/predict_table/\n\\ No newline at end of file\n+curl -X POST -F \"file=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/ppstructure/sample/Screenshot 2024-08-21 at 9.42.30 PM.png\" -o table_output.html http://localhost:8000/predict_table/\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724316301173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-curl -X POST -F \"file=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/ppstructure/sample/Screenshot 2024-08-21 at 9.42.30 PM.png\" -o table_output.html http://localhost:8000/predict_table/\n\\ No newline at end of file\n+curl -X POST -F \"file=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/ppstructure/sample/table1.png\" -o table_output.html http://localhost:8000/predict_table/\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724316395300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,4 @@\n-curl -X POST -F \"file=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/ppstructure/sample/table1.png\" -o table_output.html http://localhost:8000/predict_table/\n\\ No newline at end of file\n+curl -v -X POST -F \"file=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/ppstructure/sample/table1.png\" \\\n+     -H \"Accept: text/html\" \\\n+     --output table_output.html \\\n+     http://localhost:8000/predict_table/\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724316419621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n-curl -v -X POST -F \"file=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/ppstructure/sample/table1.png\" \\\n+curl -v -X POST \\\n      -H \"Accept: text/html\" \\\n+     -F \"file=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/ppstructure/sample/table1.png\" \\\n      --output table_output.html \\\n      http://localhost:8000/predict_table/\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724316427332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n curl -v -X POST \\\n-     -H \"Accept: text/html\" \\\n-     -F \"file=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/ppstructure/sample/table1.png\" \\\n-     --output table_output.html \\\n-     http://localhost:8000/predict_table/\n\\ No newline at end of file\n+    -H \"Accept: text/html\" \\\n+    -F \"file=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/ppstructure/sample/table1.png\" \\\n+    --output table_output.html \\\n+    http://localhost:8000/predict_table/\n"
+                }
+            ],
+            "date": 1724316190415,
+            "name": "Commit-0",
+            "content": "curl -X POST -F \"file=@/path/to/your/image.jpg\" -o table_output.html http://localhost:8000/predict_table/"
+        }
+    ]
+}

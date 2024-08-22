@@ -1,0 +1,50 @@
+{
+    "sourceFile": "ppstructure/app.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1724315626668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724315664509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,21 +27,9 @@\n         file_path = os.path.join(temp_dir, file.filename)\n         with open(file_path, \"wb\") as buffer:\n             buffer.write(await file.read())\n         \n-        # Read the image\n-        img = cv2.imread(file_path)\n         \n-        # Process the image\n-        pred_res, _ = table_system(img)\n-        \n-        # Generate HTML and Excel output\n-        html_output = pred_res[\"html\"]\n-        excel_path = os.path.join(temp_dir, \"output.xlsx\")\n-        to_excel(html_output, excel_path)\n-        \n-        # Return the Excel file\n-        return FileResponse(excel_path, filename=\"table_output.xlsx\")\n \n if __name__ == \"__main__\":\n     import uvicorn\n     uvicorn.run(app, host=\"0.0.0.0\", port=8000)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724315750249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,21 @@\n         file_path = os.path.join(temp_dir, file.filename)\n         with open(file_path, \"wb\") as buffer:\n             buffer.write(await file.read())\n         \n+        # Read the image\n+        img = cv2.imread(file_path)\n         \n+        # Process the image\n+        pred_res, _ = table_system(img)\n+        \n+        # Generate HTML and Excel output\n+        html_output = pred_res[\"html\"]\n+        excel_path = os.path.join(temp_dir, \"output.xlsx\")\n+        to_excel(html_output, excel_path)\n+        \n+        # Return the Excel file\n+        return FileResponse(excel_path, filename=\"table_output.xlsx\")\n \n if __name__ == \"__main__\":\n     import uvicorn\n     uvicorn.run(app, host=\"0.0.0.0\", port=8000)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724315777859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import os\n import tempfile\n from fastapi import FastAPI, File, UploadFile\n from fastapi.responses import FileResponse\n-from PaddleOCR.ppstructure.table.predict_table import TableSystem, parse_args, to_excel\n+from table.predict_table import TableSystem, parse_args, to_excel\n import cv2\n \n app = FastAPI()\n \n"
+                },
+                {
+                    "date": 1724315928798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,8 @@\n table_system = TableSystem(args)\n \n @app.post(\"/predict_table/\")\n async def predict_table(file: UploadFile = File(...)):\n-    # Create a temporary directory to store the input and output files\n     with tempfile.TemporaryDirectory() as temp_dir:\n         # Save the uploaded file\n         file_path = os.path.join(temp_dir, file.filename)\n         with open(file_path, \"wb\") as buffer:\n@@ -33,15 +32,13 @@\n         \n         # Process the image\n         pred_res, _ = table_system(img)\n         \n-        # Generate HTML and Excel output\n+        # Get the HTML output\n         html_output = pred_res[\"html\"]\n-        excel_path = os.path.join(temp_dir, \"output.xlsx\")\n-        to_excel(html_output, excel_path)\n         \n-        # Return the Excel file\n-        return FileResponse(excel_path, filename=\"table_output.xlsx\")\n+        # Return the HTML as plain text\n+        return PlainTextResponse(content=html_output, media_type=\"text/html\")\n \n if __name__ == \"__main__\":\n     import uvicorn\n     uvicorn.run(app, host=\"0.0.0.0\", port=8000)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724315959617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n table_system = TableSystem(args)\n \n @app.post(\"/predict_table/\")\n async def predict_table(file: UploadFile = File(...)):\n+    # Create a temporary directory to store the input and output files\n     with tempfile.TemporaryDirectory() as temp_dir:\n         # Save the uploaded file\n         file_path = os.path.join(temp_dir, file.filename)\n         with open(file_path, \"wb\") as buffer:\n@@ -32,13 +33,15 @@\n         \n         # Process the image\n         pred_res, _ = table_system(img)\n         \n-        # Get the HTML output\n+        # Generate HTML and Excel output\n         html_output = pred_res[\"html\"]\n+        excel_path = os.path.join(temp_dir, \"output.xlsx\")\n+        to_excel(html_output, excel_path)\n         \n-        # Return the HTML as plain text\n-        return PlainTextResponse(content=html_output, media_type=\"text/html\")\n+        # Return the Excel file\n+        return FileResponse(excel_path, filename=\"table_output.xlsx\")\n \n if __name__ == \"__main__\":\n     import uvicorn\n     uvicorn.run(app, host=\"0.0.0.0\", port=8000)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724315983008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,13 +35,11 @@\n         pred_res, _ = table_system(img)\n         \n         # Generate HTML and Excel output\n         html_output = pred_res[\"html\"]\n-        excel_path = os.path.join(temp_dir, \"output.xlsx\")\n-        to_excel(html_output, excel_path)\n         \n         # Return the Excel file\n-        return FileResponse(excel_path, filename=\"table_output.xlsx\")\n+        return FileResponse(html_output, filename=\"table_output.html\")\n \n if __name__ == \"__main__\":\n     import uvicorn\n     uvicorn.run(app, host=\"0.0.0.0\", port=8000)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724315990864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import os\n import tempfile\n from fastapi import FastAPI, File, UploadFile\n from fastapi.responses import FileResponse\n-from table.predict_table import TableSystem, parse_args, to_excel\n+from table.predict_table import TableSystem, parse_args\n import cv2\n \n app = FastAPI()\n \n"
+                },
+                {
+                    "date": 1724316445741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n table_system = TableSystem(args)\n \n @app.post(\"/predict_table/\")\n async def predict_table(file: UploadFile = File(...)):\n+    print(\"File received:\", file.filename)\n     # Create a temporary directory to store the input and output files\n     with tempfile.TemporaryDirectory() as temp_dir:\n         # Save the uploaded file\n         file_path = os.path.join(temp_dir, file.filename)\n"
+                }
+            ],
+            "date": 1724315626668,
+            "name": "Commit-0",
+            "content": "import os\nimport tempfile\nfrom fastapi import FastAPI, File, UploadFile\nfrom fastapi.responses import FileResponse\nfrom PaddleOCR.ppstructure.table.predict_table import TableSystem, parse_args, to_excel\nimport cv2\n\napp = FastAPI()\n\n# Initialize TableSystem with default arguments\nargs = parse_args()\nargs.det_model_dir = 'inference/en_ppocr_mobile_v2.0_table_det_infer'\nargs.rec_model_dir = 'inference/en_ppocr_mobile_v2.0_table_rec_infer'\nargs.table_model_dir = 'inference/en_ppocr_mobile_v2.0_table_structure_infer'\nargs.rec_char_dict_path = '../ppocr/utils/dict/table_dict.txt'\nargs.table_char_dict_path = '../ppocr/utils/dict/table_structure_dict.txt'\nargs.det_limit_side_len = 736\nargs.det_limit_type = 'min'\n\ntable_system = TableSystem(args)\n\n@app.post(\"/predict_table/\")\nasync def predict_table(file: UploadFile = File(...)):\n    # Create a temporary directory to store the input and output files\n    with tempfile.TemporaryDirectory() as temp_dir:\n        # Save the uploaded file\n        file_path = os.path.join(temp_dir, file.filename)\n        with open(file_path, \"wb\") as buffer:\n            buffer.write(await file.read())\n        \n        # Read the image\n        img = cv2.imread(file_path)\n        \n        # Process the image\n        pred_res, _ = table_system(img)\n        \n        # Generate HTML and Excel output\n        html_output = pred_res[\"html\"]\n        excel_path = os.path.join(temp_dir, \"output.xlsx\")\n        to_excel(html_output, excel_path)\n        \n        # Return the Excel file\n        return FileResponse(excel_path, filename=\"table_output.xlsx\")\n\nif __name__ == \"__main__\":\n    import uvicorn\n    uvicorn.run(app, host=\"0.0.0.0\", port=8000)"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "sourceFile": "Dockerfile",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1724315197542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724315248071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,12 +9,8 @@\n \n # Install system dependencies\n RUN apt-get update && apt-get install -y wget\n \n-# Create and activate virtual environment\n-RUN python3 -m venv paddleocr_env\n-ENV PATH=\"/app/paddleocr_env/bin:$PATH\"\n-\n # Upgrade pip and install requirements\n RUN pip install --upgrade pip\n RUN pip install -r requirements.txt\n \n"
+                },
+                {
+                    "date": 1724315819789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n # Set the working directory in the container\n WORKDIR /app\n \n # Copy the current directory contents into the container at /app\n-COPY . /app\n+COPY ppstructure /app\n \n # Install system dependencies\n RUN apt-get update && apt-get install -y wget\n \n"
+                },
+                {
+                    "date": 1724315834418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n RUN pip install --upgrade pip\n RUN pip install -r requirements.txt\n \n # Set up ppstructure and download models\n-WORKDIR /app/ppstructure\n+WORKDIR /app\n RUN mkdir -p inference && cd inference && \\\n     wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n     tar xf en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n     wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n"
+                },
+                {
+                    "date": 1724315840700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n # Upgrade pip and install requirements\n RUN pip install --upgrade pip\n RUN pip install -r requirements.txt\n \n-# Set up ppstructure and download models\n+# Download models\n WORKDIR /app\n RUN mkdir -p inference && cd inference && \\\n     wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n     tar xf en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n"
+                },
+                {
+                    "date": 1724315854432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n # Set the working directory in the container\n WORKDIR /app\n \n # Copy the current directory contents into the container at /app\n-COPY ppstructure /app\n+COPY ppstructure /app/ppstructure\n \n # Install system dependencies\n RUN apt-get update && apt-get install -y wget\n \n@@ -14,9 +14,9 @@\n RUN pip install --upgrade pip\n RUN pip install -r requirements.txt\n \n # Download models\n-WORKDIR /app\n+WORKDIR /app/ppstructure\n RUN mkdir -p inference && cd inference && \\\n     wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n     tar xf en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n     wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n"
+                },
+                {
+                    "date": 1724316041281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n WORKDIR /app\n \n # Copy the current directory contents into the container at /app\n COPY ppstructure /app/ppstructure\n+COPY requirements.txt /app/requirements.txt\n \n # Install system dependencies\n RUN apt-get update && apt-get install -y wget\n \n"
+                }
+            ],
+            "date": 1724315197542,
+            "name": "Commit-0",
+            "content": "# Use an official Python runtime as a parent image\nFROM python:3.8-slim\n\n# Set the working directory in the container\nWORKDIR /app\n\n# Copy the current directory contents into the container at /app\nCOPY . /app\n\n# Install system dependencies\nRUN apt-get update && apt-get install -y wget\n\n# Create and activate virtual environment\nRUN python3 -m venv paddleocr_env\nENV PATH=\"/app/paddleocr_env/bin:$PATH\"\n\n# Upgrade pip and install requirements\nRUN pip install --upgrade pip\nRUN pip install -r requirements.txt\n\n# Set up ppstructure and download models\nWORKDIR /app/ppstructure\nRUN mkdir -p inference && cd inference && \\\n    wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n    tar xf en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n    wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n    tar xf en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n    wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n    tar xf en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n    cd ..\n\n# Set the working directory back to /app\nWORKDIR /app\n\n# Run paddleocr when the container launches\nCMD [\"paddleocr\"]"
+        }
+    ]
+}

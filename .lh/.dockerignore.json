@@ -1,0 +1,22 @@
+{
+    "sourceFile": ".dockerignore",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1724315334693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724316277217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,1 @@\n-.github\n-.lh\n-.venv\n-applications\n-benchmark\n-configs\n-deploydoc\n-docs\n-output\n-overrides\n-ppocr\n-test_tipc\n-tests\n-tools\n+sample\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1724315334693,
+            "name": "Commit-0",
+            "content": ".github\n.lh\n.venv\napplications\nbenchmark\nconfigs\ndeploydoc\ndocs\noutput\noverrides\nppocr\ntest_tipc\ntests\ntools\n"
+        }
+    ]
+}
