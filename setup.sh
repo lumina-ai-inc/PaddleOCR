@@ -1,3 +1,11 @@
+# Create and activate virtual environment
+python3 -m venv paddleocr_env
+source paddleocr_env/bin/activate
+
+# Upgrade pip and install requirements
+pip install --upgrade pip
+pip install -r requirements.txt
+
 cd ppstructure
 
 # download model
