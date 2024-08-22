@@ -1,0 +1,22 @@
+{
+    "sourceFile": "setup.sh",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1724302199694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724302203109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,5 @@\n # Download the recognition model of the ultra-lightweight table English OCR model and unzip it\n wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_rec_infer.tar && tar xf en_ppocr_mobile_v2.0_table_rec_infer.tar\n # Download the ultra-lightweight English table inch model and unzip it\n wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_structure_infer.tar && tar xf en_ppocr_mobile_v2.0_table_structure_infer.tar\n-cd ..\n-# run\n\\ No newline at end of file\n+cd ..\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1724302199694,
+            "name": "Commit-0",
+            "content": "cd ppstructure\n\n# download model\nmkdir inference && cd inference\n# Download the detection model of the ultra-lightweight table English OCR model and unzip it\nwget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_det_infer.tar && tar xf en_ppocr_mobile_v2.0_table_det_infer.tar\n# Download the recognition model of the ultra-lightweight table English OCR model and unzip it\nwget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_rec_infer.tar && tar xf en_ppocr_mobile_v2.0_table_rec_infer.tar\n# Download the ultra-lightweight English table inch model and unzip it\nwget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_structure_infer.tar && tar xf en_ppocr_mobile_v2.0_table_structure_infer.tar\ncd ..\n# run"
+        }
+    ]
+}

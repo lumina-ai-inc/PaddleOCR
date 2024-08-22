@@ -1,0 +1,18 @@
+{
+    "sourceFile": "requirements.txt",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1724302724469,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1724302724469,
+            "name": "Commit-0",
+            "content": "shapely\nscikit-image\nimgaug\npyclipper\nlmdb\ntqdm\nnumpy<2.0\nrapidfuzz\nopencv-python\nopencv-contrib-python\ncython\nPillow\npyyaml\nrequests\nalbumentations==1.4.10\npaddlepaddle-gpu\n"
+        }
+    ]
+}

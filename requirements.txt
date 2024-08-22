@@ -13,3 +13,4 @@ Pillow
 pyyaml
 requests
 albumentations==1.4.10
+paddlepaddle-gpu
