@@ -1,0 +1,38 @@
+{
+    "sourceFile": "ppstructure/requirements.txt",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1724447472368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724447494472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n shapely\n scikit-image\n imgaug\n pyclipper\n-lmdb==1.4.1\n+lmdb==1.5.1\n tqdm\n numpy<2.0\n rapidfuzz\n opencv-python\n"
+                },
+                {
+                    "date": 1724447512456,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n shapely\n scikit-image\n imgaug\n pyclipper\n-lmdb==1.5.1\n+lmdb==1.5.0\n tqdm\n numpy<2.0\n rapidfuzz\n opencv-python\n"
+                },
+                {
+                    "date": 1724447526556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n shapely\n scikit-image\n imgaug\n pyclipper\n-lmdb==1.5.0\n+lmdb==1.4.1\n tqdm\n numpy<2.0\n rapidfuzz\n opencv-python\n"
+                },
+                {
+                    "date": 1724453794484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,8 @@\n Pillow\n pyyaml\n requests\n albumentations==1.4.10\n-paddlepaddle-gpu\n+paddlepaddle\n fastapi\n python-multipart\n uvicorn\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724454669237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,5 @@\n albumentations==1.4.10\n paddlepaddle\n fastapi\n python-multipart\n-uvicorn\n\\ No newline at end of file\n+uvicorn \n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1724447472368,
+            "name": "Commit-0",
+            "content": "shapely\nscikit-image\nimgaug\npyclipper\nlmdb==1.4.1\ntqdm\nnumpy<2.0\nrapidfuzz\nopencv-python\nopencv-contrib-python\ncython\nPillow\npyyaml\nrequests\nalbumentations==1.4.10\npaddlepaddle-gpu\nfastapi\npython-multipart\nuvicorn"
+        }
+    ]
+}

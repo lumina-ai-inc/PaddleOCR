@@ -2,7 +2,7 @@ shapely
 scikit-image
 imgaug
 pyclipper
-lmdb
+lmdb==1.4.1
 tqdm
 numpy<2.0
 rapidfuzz
@@ -13,7 +13,7 @@ Pillow
 pyyaml
 requests
 albumentations==1.4.10
-paddlepaddle-gpu
+paddlepaddle
 fastapi
 python-multipart
-uvicorn
+uvicorn 

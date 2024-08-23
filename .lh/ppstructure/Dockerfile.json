@@ -1,0 +1,66 @@
+{
+    "sourceFile": "ppstructure/Dockerfile",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1724447058508,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724447174837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     tar xf en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n     cd ..\n \n # Set the working directory back to /app\n-WORKDIR /app\n+WORKDIR /app/ppstructure\n \n # Make port 80 available to the world outside this container\n EXPOSE 80\n \n"
+                },
+                {
+                    "date": 1724447194050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n # Set the working directory in the container\n WORKDIR /app\n \n # Copy the current directory contents into the container at /app\n-COPY ppstructure /app/ppstructure\n+COPY . /app/ppstructure\n COPY requirements.txt /app/requirements.txt\n \n # Install system dependencies\n RUN apt-get update && apt-get install -y wget\n"
+                },
+                {
+                    "date": 1724447214429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n # Set the working directory in the container\n WORKDIR /app\n \n # Copy the current directory contents into the container at /app\n-COPY . /app/ppstructure\n+COPY . /app\n COPY requirements.txt /app/requirements.txt\n \n # Install system dependencies\n RUN apt-get update && apt-get install -y wget\n@@ -15,9 +15,9 @@\n RUN pip install --upgrade pip\n RUN pip install -r requirements.txt\n \n # Download models\n-WORKDIR /app/ppstructure\n+WORKDIR /app\n RUN mkdir -p inference && cd inference && \\\n     wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n     tar xf en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n     wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n@@ -26,9 +26,9 @@\n     tar xf en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n     cd ..\n \n # Set the working directory back to /app\n-WORKDIR /app/ppstructure\n+WORKDIR /app\n \n # Make port 80 available to the world outside this container\n EXPOSE 80\n \n"
+                },
+                {
+                    "date": 1724447271670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n WORKDIR /app\n \n # Copy the current directory contents into the container at /app\n COPY . /app\n-COPY requirements.txt /app/requirements.txt\n \n # Install system dependencies\n RUN apt-get update && apt-get install -y wget\n \n"
+                },
+                {
+                    "date": 1724447329896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n # Use an official Python runtime as a parent image\n-FROM python:3.8-slim\n+FROM python:3.11-slim\n \n # Set the working directory in the container\n WORKDIR /app\n \n"
+                },
+                {
+                    "date": 1724447335515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n WORKDIR /app\n \n # Copy the current directory contents into the container at /app\n COPY . /app\n+COPY requirements.txt /app/requirements.txt\n \n # Install system dependencies\n RUN apt-get update && apt-get install -y wget\n \n"
+                },
+                {
+                    "date": 1724447346917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n WORKDIR /app\n \n # Copy the current directory contents into the container at /app\n COPY . /app\n-COPY requirements.txt /app/requirements.txt\n \n # Install system dependencies\n RUN apt-get update && apt-get install -y wget\n \n"
+                },
+                {
+                    "date": 1724454694140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,18 +13,18 @@\n # Upgrade pip and install requirements\n RUN pip install --upgrade pip\n RUN pip install -r requirements.txt\n \n-# Download models\n-WORKDIR /app\n-RUN mkdir -p inference && cd inference && \\\n-    wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n-    tar xf en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n-    wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n-    tar xf en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n-    wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n-    tar xf en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n-    cd ..\n+# # Download models\n+# WORKDIR /app\n+# RUN mkdir -p inference && cd inference && \\\n+#     wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n+#     tar xf en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n+#     wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n+#     tar xf en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n+#     wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n+#     tar xf en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n+#     cd ..\n \n # Set the working directory back to /app\n WORKDIR /app\n \n"
+                },
+                {
+                    "date": 1724454777280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,18 +13,18 @@\n # Upgrade pip and install requirements\n RUN pip install --upgrade pip\n RUN pip install -r requirements.txt\n \n-# # Download models\n-# WORKDIR /app\n-# RUN mkdir -p inference && cd inference && \\\n-#     wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n-#     tar xf en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n-#     wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n-#     tar xf en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n-#     wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n-#     tar xf en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n-#     cd ..\n+# Download models\n+WORKDIR /app\n+RUN mkdir -p inference && cd inference && \\\n+    wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n+    tar xf en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n+    wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n+    tar xf en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n+    wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n+    tar xf en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n+    cd ..\n \n # Set the working directory back to /app\n WORKDIR /app\n \n"
+                },
+                {
+                    "date": 1724454856136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,10 +7,9 @@\n # Copy the current directory contents into the container at /app\n COPY . /app\n \n # Install system dependencies\n-RUN apt-get update && apt-get install -y wget\n-\n+RUN apt-get update && apt-get install -y wget libgl1-mesa-glx libglib2.0-0\n # Upgrade pip and install requirements\n RUN pip install --upgrade pip\n RUN pip install -r requirements.txt\n \n"
+                },
+                {
+                    "date": 1724454863381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,12 @@\n COPY . /app\n \n # Install system dependencies\n RUN apt-get update && apt-get install -y wget libgl1-mesa-glx libglib2.0-0\n+\n # Upgrade pip and install requirements\n RUN pip install --upgrade pip\n-RUN pip install -r requirements.txt\n+RUN pip install -r requirements.txt -i https://mirror.baidu.com/pypi/simple\n \n # Download models\n WORKDIR /app\n RUN mkdir -p inference && cd inference && \\\n"
+                },
+                {
+                    "date": 1724454885037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n RUN apt-get update && apt-get install -y wget libgl1-mesa-glx libglib2.0-0\n \n # Upgrade pip and install requirements\n RUN pip install --upgrade pip\n-RUN pip install -r requirements.txt -i https://mirror.baidu.com/pypi/simple\n+RUN pip install -r requirements.txt \n \n # Download models\n WORKDIR /app\n RUN mkdir -p inference && cd inference && \\\n"
+                }
+            ],
+            "date": 1724447058508,
+            "name": "Commit-0",
+            "content": "# Use an official Python runtime as a parent image\nFROM python:3.8-slim\n\n# Set the working directory in the container\nWORKDIR /app\n\n# Copy the current directory contents into the container at /app\nCOPY ppstructure /app/ppstructure\nCOPY requirements.txt /app/requirements.txt\n\n# Install system dependencies\nRUN apt-get update && apt-get install -y wget\n\n# Upgrade pip and install requirements\nRUN pip install --upgrade pip\nRUN pip install -r requirements.txt\n\n# Download models\nWORKDIR /app/ppstructure\nRUN mkdir -p inference && cd inference && \\\n    wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n    tar xf en_ppocr_mobile_v2.0_table_det_infer.tar && \\\n    wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n    tar xf en_ppocr_mobile_v2.0_table_rec_infer.tar && \\\n    wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/table/en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n    tar xf en_ppocr_mobile_v2.0_table_structure_infer.tar && \\\n    cd ..\n\n# Set the working directory back to /app\nWORKDIR /app\n\n# Make port 80 available to the world outside this container\nEXPOSE 80\n\n# Run app.py when the container launches\nCMD [\"uvicorn\", \"app:app\", \"--host\", \"0.0.0.0\", \"--port\", \"80\"]\n"
+        }
+    ]
+}
