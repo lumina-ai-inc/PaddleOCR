@@ -19,7 +19,15 @@ args.det_limit_type = 'min'
 
 table_system = TableSystem(args)
 
-@app.post("/predict_table/")
+@app.get("/readiness")
+def readiness():
+    return {"status": "ready"}
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello, World!"}
+
+@app.post("/predict_table")
 async def predict_table(file: UploadFile = File(...)):
     print("File received:", file.filename)
     # Create a temporary directory to store the input and output files
@@ -43,4 +51,4 @@ async def predict_table(file: UploadFile = File(...)):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=80)

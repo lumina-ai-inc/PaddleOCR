@@ -116,6 +116,8 @@ def main(args):
         elapse = time.time() - starttime
         total_time += elapse
         logger.info("Predict time of %s: %.3fs" % (image_file, elapse))
+        print(r.json())
+        print(args.server_url)
         res = r.json()["results"][0]
         logger.info(res)
 

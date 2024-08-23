@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 6,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1724315197542,
@@ -32,6 +32,10 @@
                 {
                     "date": 1724316041281,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n WORKDIR /app\n \n # Copy the current directory contents into the container at /app\n COPY ppstructure /app/ppstructure\n+COPY requirements.txt /app/requirements.txt\n \n # Install system dependencies\n RUN apt-get update && apt-get install -y wget\n \n"
+                },
+                {
+                    "date": 1724438157738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,5 +29,5 @@\n # Set the working directory back to /app\n WORKDIR /app\n \n # Run paddleocr when the container launches\n-CMD [\"paddleocr\"]\n\\ No newline at end of file\n+CMD [\"python\", \"ppstructure/app.py\"]\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1724315197542,

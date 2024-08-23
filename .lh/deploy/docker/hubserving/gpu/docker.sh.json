@@ -1,0 +1,18 @@
+{
+    "sourceFile": "deploy/docker/hubserving/gpu/docker.sh",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1724393092903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1724393092903,
+            "name": "Commit-0",
+            "content": "#!/bin/bash\n\n# Save the current directory path\nCURRENT_DIR=$(pwd)\n\n# Change to the project root directory\ncd ../../\n\n# Define the Docker image name as a variable\nDOCKER_IMAGE_NAME=\"akhilesh99/paddleocr\"\n\n# Get the current commit SHA\nSHA=$(git rev-parse --short HEAD)\necho \"------------------------\"\necho $SHA\necho \"------------------------\"\n\n# Build the Docker image with the SHA tag, using the saved path for the Dockerfile\ndocker build --platform linux/amd64 -t $DOCKER_IMAGE_NAME:$SHA -f $CURRENT_DIR/Dockerfile .\n\n# Check if the build was successful\nif [ $? -eq 0 ]; then\n    # Push the Docker image with the SHA tag\n    docker push $DOCKER_IMAGE_NAME:$SHA\n\n    # Optionally, you can also tag and push as latest\n    docker tag $DOCKER_IMAGE_NAME:$SHA $DOCKER_IMAGE_NAME:latest\n    docker push $DOCKER_IMAGE_NAME:latest\nelse\n    echo \"Docker build failed. Skipping push.\"\n    exit 1\nfi"
+        }
+    ]
+}

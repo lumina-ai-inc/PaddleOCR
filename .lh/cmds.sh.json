@@ -1,0 +1,38 @@
+{
+    "sourceFile": "cmds.sh",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1724395868546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724395887883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,2 @@\n-http://127.0.0.1:8869/predict/structure_table\n+http://127.0.0.1:8869\n+ curl -X POST -F \"image=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/sample/sample.png\" -H \"Content-Type: application/json\" http://tensorflow-gpus-0-none.default.54.156.238.222.sslip.io/predict/ocr_system\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724395895384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,1 @@\n-http://127.0.0.1:8869\n- curl -X POST -F \"image=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/sample/sample.png\" -H \"Content-Type: application/json\" http://tensorflow-gpus-0-none.default.54.156.238.222.sslip.io/predict/ocr_system\n\\ No newline at end of file\n+curl -X POST -F \"image=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/sample/sample.png\" -H \"Content-Type: application/json\" http://tensorflow-gpus-0-none.default.54.156.238.222.sslip.io/predict/structure_table\n"
+                },
+                {
+                    "date": 1724395902050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-curl -X POST -F \"image=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/sample/sample.png\" -H \"Content-Type: application/json\" http://tensorflow-gpus-0-none.default.54.156.238.222.sslip.io/predict/structure_table\n+curl -X POST -F \"image=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/sample/sample.png\" -H \"Content-Type: application/json\" http://tensorflow-gpus-0-none.default.54.156.238.222.sslip.io\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724395946851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,3 @@\n-curl -X POST -F \"image=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/sample/sample.png\" -H \"Content-Type: application/json\" http://tensorflow-gpus-0-none.default.54.156.238.222.sslip.io\n\\ No newline at end of file\n+http://127.0.0.1:8869/predict/structure_table\n+\n+curl -X POST -F \"image=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/sample/sample.png\" -H \"Content-Type: application/json\" http://tensorflow-gpus-0-none.default.54.156.238.222.sslip.io/predict/structure_table\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724396117451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,5 @@\n http://127.0.0.1:8869/predict/structure_table\n \n-curl -X POST -F \"image=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/sample/sample.png\" -H \"Content-Type: application/json\" http://tensorflow-gpus-0-none.default.54.156.238.222.sslip.io/predict/structure_table\n\\ No newline at end of file\n+curl -X POST -F \"image=@/Users/akhileshsharma/Documents/Lumina/PaddleOCR/sample/sample.png\" -H \"Content-Type: application/json\" http://tensorflow-gpus-0-none.default.54.156.238.222.sslip.io/predict/structure_table\n+\n+curl https://tensorflow-gpus-0-none.default.54.156.238.222.sslip.io\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1724395868546,
+            "name": "Commit-0",
+            "content": "http://127.0.0.1:8869/predict/structure_table\n"
+        }
+    ]
+}
